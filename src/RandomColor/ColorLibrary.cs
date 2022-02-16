@@ -70,6 +70,21 @@ public class ColorLibrary
                     new(90, 50),
                     new(100, 40)
                 })
+            },
+            {
+                EColorScheme.Blue,
+                new KnownColor(new Range(-26, 18), new Range[]
+                {
+                    new(20, 100),
+                    new(30, 86),
+                    new(40, 80),
+                    new(50, 74),
+                    new(60, 60),
+                    new(70, 52),
+                    new(80, 44),
+                    new(90, 39),
+                    new(100, 35)
+                })
             }
         };
     }
