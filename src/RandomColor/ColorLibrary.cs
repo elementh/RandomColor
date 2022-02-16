@@ -30,6 +30,19 @@ public class ColorLibrary
                     new(90, 55),
                     new(100, 50)
                 })
+            },
+            {
+                EColorScheme.Orange,
+                new KnownColor(new Range(19, 46), new Range[]
+                {
+                    new(20, 100),
+                    new(30, 93),
+                    new(40, 88),
+                    new(50, 86),
+                    new(60, 85),
+                    new(70, 70),
+                    new(100, 70)
+                })
             }
         };
     }
