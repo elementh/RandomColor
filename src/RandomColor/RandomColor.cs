@@ -60,6 +60,18 @@ public static class RandomColor
         };
     }
 
+    private static int PickBrightness(int hue, int saturation, ELuminosity? luminosity)
+    {
+        var minimumBrightness = ColorLibrary.GetMinimumValue(hue, saturation);
+
+        return luminosity switch
+        {
+            ELuminosity.Bright => RandomWithin(new Range(minimumBrightness, 100)),
+            ELuminosity.Light => RandomWithin(new Range(100 + minimumBrightness / 2, 100)),
+            ELuminosity.Dark => RandomWithin(new Range(minimumBrightness, minimumBrightness + 20)),
+            _ => RandomWithin(new Range(0, 100))
+        };
+    }
     private static int RandomWithin(Range range)
     {
         if (range.Start.Value > range.End.Value)
