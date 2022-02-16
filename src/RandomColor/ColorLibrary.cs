@@ -85,7 +85,22 @@ public class ColorLibrary
                     new(90, 39),
                     new(100, 35)
                 })
-            }
+            },
+            {
+                EColorScheme.Purple,
+                new KnownColor(new Range(258, 282), new Range[]
+                {
+                    new(20, 100),
+                    new(30, 87),
+                    new(40, 79),
+                    new(50, 70),
+                    new(60, 65),
+                    new(70, 59),
+                    new(80, 52),
+                    new(90, 45),
+                    new(100, 42)
+                })
+            },
         };
     }
 }
