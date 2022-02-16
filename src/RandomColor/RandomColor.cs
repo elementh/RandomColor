@@ -36,12 +36,7 @@ public static class RandomColor
 
     private static int PickHue(EColorScheme? scheme)
     {
-        if (scheme is null)
-        {
-            return _random.Next(0, 361);
-        }
-
-        return RandomWithin(ColorLibrary.GetColor(scheme)?.Hue ?? new Range(0, 361));
+        return scheme is null ? _random.Next(0, 361) : RandomWithin(ColorLibrary.GetColor(scheme)?.Hue ?? new Range(0, 361));
     }
 
     private static int PickSaturation(int hue, ELuminosity? luminosity)
