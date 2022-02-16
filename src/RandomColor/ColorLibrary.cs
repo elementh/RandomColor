@@ -73,7 +73,7 @@ public class ColorLibrary
             },
             {
                 EColorScheme.Blue,
-                new KnownColor(new Range(-26, 18), new Range[]
+                new KnownColor(new Range(179, 257), new Range[]
                 {
                     new(20, 100),
                     new(30, 86),
