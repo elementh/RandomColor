@@ -56,6 +56,20 @@ public class ColorLibrary
                     new(70, 70),
                     new(100, 70)
                 })
+            },
+            {
+                EColorScheme.Green,
+                new KnownColor(new Range(63, 178), new Range[]
+                {
+                    new(30, 100),
+                    new(40, 90),
+                    new(50, 85),
+                    new(60, 81),
+                    new(70, 74),
+                    new(80, 64),
+                    new(90, 50),
+                    new(100, 40)
+                })
             }
         };
     }
