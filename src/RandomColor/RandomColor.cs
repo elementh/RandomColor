@@ -29,6 +29,8 @@ public static class RandomColor
 
         var hue = PickHue(scheme);
         var saturation = PickSaturation(hue, luminosity);
+
+        throw new NotImplementedException();
     }
     private static int PickHue(EColorScheme? scheme)
     {
