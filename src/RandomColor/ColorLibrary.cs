@@ -101,6 +101,19 @@ public class ColorLibrary
                     new(100, 42)
                 })
             },
+            {
+                EColorScheme.Pink,
+                new KnownColor(new Range(283, 334), new Range[]
+                {
+                    new(20, 100),
+                    new(30, 90),
+                    new(40, 86),
+                    new(60, 84),
+                    new(80, 80),
+                    new(90, 75),
+                    new(100, 73)
+                })
+            }
         };
     }
 }
