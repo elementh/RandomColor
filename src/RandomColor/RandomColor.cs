@@ -29,9 +29,11 @@ public static class RandomColor
 
         var hue = PickHue(scheme);
         var saturation = PickSaturation(hue, luminosity);
+        var brightness = PickBrightness(hue, saturation, luminosity);
 
-        throw new NotImplementedException();
+        return BuildColor(hue, saturation, brightness);
     }
+
     private static int PickHue(EColorScheme? scheme)
     {
         if (scheme is null)
@@ -50,7 +52,7 @@ public static class RandomColor
         {
             return RandomWithin(new Range(0, 100));
         }
-        
+
         return luminosity switch
         {
             ELuminosity.Bright => RandomWithin(new Range(55, saturation.Value.End)),
@@ -72,6 +74,40 @@ public static class RandomColor
             _ => RandomWithin(new Range(0, 100))
         };
     }
+
+    private static Color BuildColor(int hue, int saturation, int brightness)
+    {
+        hue = hue switch
+        {
+            0 => 1,
+            360 => 359,
+            _ => hue
+        };
+
+        var h = hue / 360d;
+        var s = saturation / 100d;
+        var v = brightness / 100d;
+
+        var hAsInt = (int)Math.Floor(h * 6.0);
+        
+        var f = h * 6.0 - hAsInt;
+        var p = v * (1.0 - s);
+        var q = v * (1.0 - f * s);
+        var t = v * (1.0 - (1.0 - f) * s);
+
+        var (r, g, b) = hAsInt switch
+        {
+            0 => (v, t, p),
+            1 => (q, v, p),
+            2 => (p, v, t),
+            3 => (p, q, v),
+            4 => (t, p, v),
+            _ => (v, p, q)
+        };
+
+        return Color.FromArgb(255, (int)Math.Floor(r * 255.0), (int)Math.Floor(g * 255.0), (int)Math.Floor(b * 255.0));
+    }
+
     private static int RandomWithin(Range range)
     {
         if (range.Start.Value > range.End.Value)
@@ -83,7 +119,7 @@ public static class RandomColor
         {
             range = new Range(range.Start, range.End.Value + 1);
         }
-        
+
         return _random.Next(range.Start.Value, range.End.Value + 1);
     }
 }
