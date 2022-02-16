@@ -1,5 +1,8 @@
 namespace RandomColor;
 
+/// <summary>
+/// Color schemes.
+/// </summary>
 public enum EColorScheme
 {
     /// <summary>

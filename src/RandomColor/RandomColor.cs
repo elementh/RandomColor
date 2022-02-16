@@ -2,6 +2,9 @@ using System.Drawing;
 
 namespace RandomColor;
 
+/// <summary>
+/// Provider of random attractive colors.
+/// </summary>
 public static class RandomColor
 {
     private static readonly ColorLibrary ColorLibrary;
@@ -14,6 +17,13 @@ public static class RandomColor
         _random = new Random();
     }
 
+    /// <summary>
+    /// Retrieves a random color within the optional parameters.
+    /// </summary>
+    /// <param name="scheme"></param>
+    /// <param name="luminosity"></param>
+    /// <param name="seed"></param>
+    /// <returns></returns>
     public static Color Get(EColorScheme? scheme = default, ELuminosity? luminosity = default, int? seed = default)
     {
         if (seed is not null)
