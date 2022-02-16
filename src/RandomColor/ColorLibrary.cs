@@ -43,6 +43,19 @@ public class ColorLibrary
                     new(70, 70),
                     new(100, 70)
                 })
+            },
+            {
+                EColorScheme.Yellow,
+                new KnownColor(new Range(47, 62), new Range[]
+                {
+                    new(20, 100),
+                    new(30, 93),
+                    new(40, 88),
+                    new(50, 86),
+                    new(60, 85),
+                    new(70, 70),
+                    new(100, 70)
+                })
             }
         };
     }
