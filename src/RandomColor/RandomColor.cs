@@ -42,16 +42,16 @@ public static class RandomColor
         return RandomWithin(ColorLibrary.GetColor(scheme)?.Hue ?? new Range(0, 361));
     }
 
-    private static int PickSaturation(int hue, ELuminosity? eLuminosity)
+    private static int PickSaturation(int hue, ELuminosity? luminosity)
     {
         var saturation = ColorLibrary.GetSaturationRange(hue);
 
-        if (eLuminosity is null)
+        if (luminosity is null)
         {
             return RandomWithin(new Range(0, 100));
         }
         
-        return eLuminosity switch
+        return luminosity switch
         {
             ELuminosity.Bright => RandomWithin(new Range(55, saturation.Value.End)),
             ELuminosity.Light => RandomWithin(new Range(saturation.Value.Start, 55)),
