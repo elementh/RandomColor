@@ -60,9 +60,9 @@ public static class RandomColor
 
         return luminosity switch
         {
-            ELuminosity.Bright => RandomWithin(new Range(55, saturation.Value.End)),
-            ELuminosity.Light => RandomWithin(new Range(saturation.Value.Start, 55)),
-            ELuminosity.Dark => RandomWithin(new Range(saturation.Value.End.Value - 10, saturation.Value.End.Value)),
+            ELuminosity.Bright => RandomWithin(new Range(55, saturation.Value.Upper)),
+            ELuminosity.Light => RandomWithin(new Range(saturation.Value.Lower, 55)),
+            ELuminosity.Dark => RandomWithin(new Range(saturation.Value.Upper - 10, saturation.Value.Upper)),
             _ => RandomWithin(saturation.Value)
         };
     }
@@ -115,16 +115,15 @@ public static class RandomColor
 
     private static int RandomWithin(Range range)
     {
-        if (range.Start.Value > range.End.Value)
+        if (range.Lower > range.Upper)
         {
-            range = new Range(range.End, range.Start);
+            range = new Range(range.Upper, range.Lower);
+        }
+        else if (range.Lower == range.Upper)
+        {
+            range = new Range(range.Lower, range.Upper + 1);
         }
 
-        if (range.Start.Value == range.End.Value)
-        {
-            range = new Range(range.Start, range.End.Value + 1);
-        }
-
-        return _random.Next(range.Start.Value, range.End.Value + 1);
+        return _random.Next(range.Lower, range.Upper + 1);
     }
 }

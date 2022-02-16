@@ -149,13 +149,13 @@ public class ColorLibrary
 
         var lowerBounds = GetColor(hue)?.LowerBounds;
 
-        for (var i = 0; i < lowerBounds?.Length; i++)
+        for (var i = 0; i < lowerBounds?.Length -1; i++)
         {
-            var s1 = lowerBounds[i].Start.Value;
-            var v1 = lowerBounds[i].End.Value;
+            var s1 = lowerBounds[i].Lower;
+            var v1 = lowerBounds[i].Upper;
             
-            var s2 = lowerBounds[i + 1].Start.Value;
-            var v2 = lowerBounds[i + 1].End.Value;
+            var s2 = lowerBounds[i + 1].Lower;
+            var v2 = lowerBounds[i + 1].Upper;
 
             if (saturation >= s1 && saturation <= s2)
             {

@@ -35,13 +35,13 @@ public record KnownColor
         Hue = hue;
         LowerBounds = lowerBounds;
 
-        var saturationMin = LowerBounds[0].Start;
-        var saturationMax = LowerBounds[^1].Start;
+        var saturationMin = LowerBounds[0].Lower;
+        var saturationMax = LowerBounds[^1].Lower;
 
         Saturation = new Range(saturationMin, saturationMax);
 
-        var brightnessMin = LowerBounds[^1].End;
-        var brightnessMax = LowerBounds[0].End;
+        var brightnessMin = LowerBounds[^1].Upper;
+        var brightnessMax = LowerBounds[0].Upper;
 
         Brightness = new Range(brightnessMin, brightnessMax);
     }
@@ -53,6 +53,6 @@ public record KnownColor
     /// <returns>True if inside the range, false otherwise.</returns>
     public bool Includes(int hue)
     {
-        return hue >= Hue.Start.Value && hue <= Hue.End.Value;
+        return hue >= Hue.Lower && hue <= Hue.Upper;
     }
 }
