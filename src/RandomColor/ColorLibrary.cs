@@ -149,7 +149,7 @@ public class ColorLibrary
 
         var lowerBounds = GetColor(hue)?.LowerBounds;
 
-        for (var i = 0; i < lowerBounds?.Length; i++)
+        for (var i = 0; i < lowerBounds?.Length -1; i++)
         {
             var s1 = lowerBounds[i].Lower;
             var v1 = lowerBounds[i].Upper;
