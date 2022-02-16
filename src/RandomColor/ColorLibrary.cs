@@ -133,7 +133,12 @@ public class ColorLibrary
         return _knownColors.Values.FirstOrDefault(color => color.Includes(hue));
     }
 
-    public Range? GetStaturationRange(int hue)
+    public KnownColor? GetColor(EColorScheme? scheme)
+    {
+        return _knownColors.GetValueOrDefault(scheme ?? default);
+    }
+
+    public Range? GetSaturationRange(int hue)
     {
         return GetColor(hue)?.Saturation;
     }
