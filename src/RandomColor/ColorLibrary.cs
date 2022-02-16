@@ -1,9 +1,15 @@
 namespace RandomColor;
 
+/// <summary>
+/// Color Library.
+/// </summary>
 public class ColorLibrary
 {
     private readonly Dictionary<EColorScheme, KnownColor> _knownColors;
 
+    /// <summary>
+    /// Default constructor.
+    /// </summary>
     public ColorLibrary()
     {
         _knownColors = new Dictionary<EColorScheme, KnownColor>()
@@ -115,5 +121,46 @@ public class ColorLibrary
                 })
             }
         };
+    }
+
+    public KnownColor? GetColor(int hue)
+    {
+        if (hue is >= 334 and <= 360)
+        {
+            hue -= 360;
+        }
+
+        return _knownColors.Values.FirstOrDefault(color => color.Includes(hue));
+    }
+
+    public Range? GetStaturationRange(int hue)
+    {
+        return GetColor(hue)?.Saturation;
+    }
+
+    public int GetMinimumValue(int hue, int saturation)
+    {
+        var minimumValue = 0;
+
+        var lowerBounds = GetColor(hue)?.LowerBounds;
+
+        for (var i = 0; i < lowerBounds?.Length; i++)
+        {
+            var s1 = lowerBounds[i].Start.Value;
+            var v1 = lowerBounds[i].End.Value;
+            
+            var s2 = lowerBounds[i + 1].Start.Value;
+            var v2 = lowerBounds[i + 1].End.Value;
+
+            if (saturation >= s1 && saturation <= s2)
+            {
+                var m = (v2 - v1) / (s2 - s1);
+                var b = v1 - m * s1;
+
+                minimumValue = m * saturation + b;
+            }
+        }
+
+        return minimumValue;
     }
 }
