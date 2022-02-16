@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Title>RandomColor</Title>
+        <Description>Modern .NET library for generating attractive random colors. Inspired by @davidmerfield's randomColor.</Description>
         <Authors>Lucas Maximiliano Marino</Authors>
         <PackageProjectUrl>https://github.com/elementh/RandomColor</PackageProjectUrl>
         <RepositoryUrl>https://github.com/elementh/RandomColor</RepositoryUrl>
