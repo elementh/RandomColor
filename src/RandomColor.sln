@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomColor", "RandomColor\RandomColor.csproj", "{DDE36997-0E72-4234-A8CD-25CD4D2628A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomColor.Testing", "RandomColor.Testing\RandomColor.Testing.csproj", "{7E691BF4-594E-4B55-840B-EC020DBEFA8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DDE36997-0E72-4234-A8CD-25CD4D2628A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDE36997-0E72-4234-A8CD-25CD4D2628A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDE36997-0E72-4234-A8CD-25CD4D2628A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E691BF4-594E-4B55-840B-EC020DBEFA8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E691BF4-594E-4B55-840B-EC020DBEFA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E691BF4-594E-4B55-840B-EC020DBEFA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E691BF4-594E-4B55-840B-EC020DBEFA8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
